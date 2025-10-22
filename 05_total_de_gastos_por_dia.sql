@@ -1,6 +1,6 @@
 -- Total de gastos por día
-SELECT fecha AS Día,
-    SUM(monto) AS Total_Diario
+SELECT fecha AS fecha,
+    SUM(monto) AS Total_diario
 FROM
     gasto
 GROUP BY
