@@ -1,4 +1,4 @@
--- Total gastado por cada departamento
+-- Total gastado por cada departamento 04
 SELECT d.nombre_departamento AS departamento,
        COALESCE(SUM(g.monto), 0) AS total_gastado
 FROM departamento d
