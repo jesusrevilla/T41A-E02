@@ -1,5 +1,1 @@
-SELECT 
-    rfc_proveedor,
-    nombre_proveedor
-FROM proveedor
-WHERE nombre_proveedor ILIKE '%Papelería%';
+SELECT * FROM proveedor WHERE nombre_proveedor like '%Tech%';
