@@ -1,6 +1,7 @@
 -- Buscar proveedores cuyo nombre contiene 'Tech'
 SELECT
-  nombre_proveedor
-FROM proveedor
-WHERE nombre_proveedor ILIKE '%tech%'
-ORDER BY nombre_proveedor;
+  p.rfc_proveedor,
+  p.nombre_proveedor
+FROM proveedor AS p
+WHERE p.nombre_proveedor ILIKE '%tech%'
+ORDER BY p.nombre_proveedor;
