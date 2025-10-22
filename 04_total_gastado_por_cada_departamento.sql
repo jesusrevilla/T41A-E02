@@ -1,5 +1,5 @@
 -- Total gastado por cada departamento
-SELECT
+SELECT 
     d.nombre_departamento,
     SUM(g.monto) AS total_gastado
 FROM gasto g
