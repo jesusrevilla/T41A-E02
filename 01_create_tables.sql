@@ -1,6 +1,6 @@
 CREATE TABLE usuario (
   id_usuario INT PRIMARY KEY,
-  nombre-usuario VARCHAR(50) NOT NULL
+  nombre_usuario VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE departamento(
