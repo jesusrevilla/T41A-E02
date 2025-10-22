@@ -1,8 +1,8 @@
 -- Total de gastos por día
 
-SELECT
-    d.nombre_departamento,
-    SUM(g.monto) AS total_gastado
-FROM gasto g
-JOIN departamento d ON g.id_departamento = d.id_departamento
-GROUP BY d.nombre_departamento;
+SELECT 
+    fecha,
+    SUM(monto) AS total_gastado
+FROM gasto
+GROUP BY fecha
+ORDER BY fecha;
