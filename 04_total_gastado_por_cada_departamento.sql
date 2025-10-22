@@ -2,10 +2,10 @@
 
 
 SELECT
-  d.id_departamento,
   d.nombre_departamento,
-  SUM(g.monto) AS total_gastado
-FROM gasto g
-JOIN departamento d ON g.id_departamento = d.id_departamento
-GROUP BY d.id_departamento, d.nombre_departamento
+  COALESCE(SUM(g.monto),0) AS total_gastado
+FROM departamento d
+LEFT JOIN gasto g ON g.id_departamento = d.id_departamento
+GROUP BY d.nombre_departamento
 ORDER BY total_gastado DESC;
+
