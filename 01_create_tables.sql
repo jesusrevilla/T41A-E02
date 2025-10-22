@@ -15,7 +15,7 @@ CREATE TABLE cuenta(
   nombre_cuenta VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE tipo_gasto(
+CREATE TABLE tipo_de_gasto(
   id_tipo_gasto SERIAL PRIMARY KEY NOT NULL,
   nombre_tipo_gasto VARCHAR(30) NOT NULL,
   id_cuenta INT,
