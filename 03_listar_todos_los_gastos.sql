@@ -1,6 +1,6 @@
 -- Listar todos los gastos con información del usuario, tipo de gasto y proveedor
 SELECT 
-    g.id_gasto,
+    g.id_gastos,
     u.nombre_usuario,
     tg.nombre_tipo_gasto,
     p.nombre_proveedor,
