@@ -1,2 +1,4 @@
 -- Buscar proveedores cuyo nombre contiene 'Tech'
-SELECT * FROM proveedor WHERE name LIKE '%Tech%';
+SELECT rfc_proveedor, nombre_proveedor
+FROM proveedor
+WHERE LOWER(nombre_proveedor) LIKE '%tech%';
