@@ -1,31 +1,31 @@
-CREATE TABLE usuarios (
+CREATE TABLE usuario (
   id_usuario INT PRIMARY KEY,
   nombre_usuario VARCHAR(50)
 );
 
-CREATE TABLE departamentos (
+CREATE TABLE departamento (
   id_departamento INT PRIMARY KEY,
   nombre_departamento VARCHAR(50)
 );
 
-CREATE TABLE proveedores (
+CREATE TABLE proveedor (
   rfc_proveedor VARCHAR(13) PRIMARY KEY,
   nombre_proveedor VARCHAR(50)
 );
 
-CREATE TABLE cuentas (
+CREATE TABLE cuenta (
   id_cuenta INT PRIMARY KEY,
   nombre_cuenta VARCHAR(50)
 );
 
-CREATE TABLE tipos_gasto (
+CREATE TABLE tipo_de_gasto (
   id_tipo_gasto INT PRIMARY KEY,
   nombre_tipo_gasto VARCHAR(50),
   id_cuenta INT,
-  FOREIGN KEY (id_cuenta) REFERENCES cuentas(id_cuenta)
+  FOREIGN KEY (id_cuenta) REFERENCES cuenta(id_cuenta)
 );
 
-CREATE TABLE gastos (
+CREATE TABLE gasto (
   id_gasto INT PRIMARY KEY,
   id_usuario INT,
   id_departamento INT,
@@ -33,8 +33,8 @@ CREATE TABLE gastos (
   rfc_proveedor VARCHAR(13),
   monto INT,
   fecha DATE,
-  FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
-  FOREIGN KEY (id_departamento) REFERENCES departamentos(id_departamento),
-  FOREIGN KEY (id_tipo_gasto) REFERENCES tipos_gasto(id_tipo_gasto),
-  FOREIGN KEY (rfc_proveedor) REFERENCES proveedores(rfc_proveedor)
+  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+  FOREIGN KEY (id_departamento) REFERENCES departamento(id_departamento),
+  FOREIGN KEY (id_tipo_gasto) REFERENCES tipo_de_gasto(id_tipo_gasto),
+  FOREIGN KEY (rfc_proveedor) REFERENCES proveedor(rfc_proveedor)
 );
