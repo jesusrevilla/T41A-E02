@@ -2,15 +2,15 @@
 SELECT 
     g.id_gasto,
     u.nombre_usuario,
-    d.nombre_departamento,
     tg.nombre_tipo_gasto,
-    c.nombre_cuenta,
+    d.nombre_departamento,
     p.nombre_proveedor,
     g.monto,
-    g.fecha
+    g.fecha,
+    c.nombre_cuenta
 FROM gasto g
-JOIN usuario u ON g.id_usuario = u.id_usuario
-JOIN departamento d ON g.id_departamento = d.id_departamento
-JOIN tipo_de_gasto tg ON g.id_tipo_gasto = tg.id_tipo_gasto
-JOIN cuenta c ON tg.id_cuenta = c.id_cuenta
-JOIN proveedor p ON g.rfc_proveedor = p.rfc_proveedor;
+    INNER JOIN usuario u ON g.id_usuario = u.id_usuario
+    INNER JOIN tipo_de_gasto tg ON g.id_tipo_gasto = tg.id_tipo_gasto
+    INNER JOIN departamento d ON g.id_departamento = d.id_departamento
+    INNER JOIN proveedor p ON g.rfc_proveedor = p.rfc_proveedor
+    INNER JOIN cuenta c ON tg.id_cuenta = c.id_cuenta;
