@@ -1,72 +1,37 @@
-DROP TABLE IF EXISTS gasto;
-DROP TABLE IF EXISTS tipo_de_gasto;
-DROP TABLE IF EXISTS proveedor;
-DROP TABLE IF EXISTS cuenta;
-DROP TABLE IF EXISTS departamento;
-DROP TABLE IF EXISTS usuario;
--- 1. Tabla usuario
-CREATE TABLE usuario (
-    id_usuario SERIAL PRIMARY KEY,
-    nombre_usuario VARCHAR(100) NOT NULL
-);
-
--- 2. Tabla departamento
-CREATE TABLE departamento (
-    id_departamento SERIAL PRIMARY KEY,
-    nombre_departamento VARCHAR(100) NOT NULL
-);
-
--- 3. Tabla cuenta
-CREATE TABLE cuenta (
-    id_cuenta SERIAL PRIMARY KEY,
-    nombre_cuenta VARCHAR(100) NULL
-);
-
--- 4. Tabla proveedor
--- El RFC se usa como clave primaria (PK)
-CREATE TABLE proveedor (
-    rfc_proveedor VARCHAR(13) PRIMARY KEY,
-    nombre_proveedor VARCHAR(150) NOT NULL
-);
-
--- 5. Tabla tipo_de_gasto
--- Contiene una FK a 'cuenta'
-CREATE TABLE tipo_de_gasto (
-    id_tipo_gasto SERIAL PRIMARY KEY,
-    nombre_tipo_gasto VARCHAR(100) NOT NULL,
-    id_cuenta INTEGER NOT NULL,
-    -- FK: Un tipo de gasto se asocia a una cuenta
-    CONSTRAINT fk_cuenta
-        FOREIGN KEY (id_cuenta)
-        REFERENCES cuenta (id_cuenta)
-);
-
--- 6. Tabla gasto (Tabla principal de hechos/transacciones)
--- Contiene todas las FKs a las tablas dimensionales
-CREATE TABLE gasto (
-    id_gasto SERIAL PRIMARY KEY,
-    id_usuario INTEGER NOT NULL,
-    id_tipo_gasto INTEGER NOT NULL,
-    id_departamento INTEGER NOT NULL,
-    rfc_proveedor VARCHAR(13) NOT NULL,
-    monto NUMERIC(10, 2) NOT NULL,
-    fecha DATE NOT NULL,
-
-    -- FK: Usuario que registró el gasto
-    CONSTRAINT fk_usuario
-        FOREIGN KEY (id_usuario)
-        REFERENCES usuario (id_usuario),
-
-    -- FK: Tipo de gasto realizado
-    CONSTRAINT fk_tipo_de_gasto
-        FOREIGN KEY (id_tipo_gasto)
-        REFERENCES tipo_de_gasto (id_tipo_gasto);
-    CONSTRAINT fk_departamento
-        FOREIGN KEY (id_departamento)
-        REFERENCES departamento (id_departamento),
-
-
-    CONSTRAINT fk_proveedor
-        FOREIGN KEY (rfc_proveedor)
-        REFERENCES proveedor (rfc_proveedor)
-);
+INSERT INTO usuario (id_usuario, nombre_usuario) VALUES
+(1, 'José Méndez'),
+(2, 'Ana Torres'),
+(3, 'Luis Martínez'),
+(4, 'Carla Gómez'),
+(5, 'Miguel Sánchez');
+INSERT INTO departamento (id_departamento, nombre_departamento) VALUES
+(1, 'Finanzas'),
+(2, 'Recursos Humanos'),
+(3, 'TI'),
+(4, 'Marketing'),
+(5, 'Operaciones');
+INSERT INTO cuenta (id_cuenta, nombre_cuenta) VALUES
+(1, 'Cuenta General'),
+(2, 'Cuenta RH'),
+(3, 'Cuenta TI'),
+(4, 'Cuenta Marketing'),
+(5, 'Cuenta Operativa');
+INSERT INTO tipo_de_gasto (id_tipo_gasto, nombre_tipo_gasto, id_cuenta) VALUES
+(1, 'Papelería', 1),
+(2, 'Capacitación', 2),
+(3, 'Software', 3),
+(4, 'Publicidad', 4),
+(5, 'Mantenimiento', 5);
+INSERT INTO proveedor (rfc_proveedor, nombre_proveedor) VALUES
+('XAXX010101000', 'Papelería Central'),
+('BEBE020202111', 'Cursos RH'),
+('TECH030303222', 'SoftTech'),
+('MARK040404333', 'Publicidad MX'),
+('FIX050505444', 'Servicios Técnicos');
+INSERT INTO gasto (id_gasto, id_usuario, id_tipo_gasto, id_departamento, rfc_proveedor, monto, fecha) VALUES
+(1, 1, 1, 1, 'XAXX010101000', 1500.00, '2025-10-01'),
+(2, 2, 2, 2, 'BEBE020202111', 3200.00, '2025-10-02'),
+(3, 3, 3, 3, 'TECH030303222', 5000.00, '2025-10-03'),
+(4, 4, 4, 4, 'MARK040404333', 4200.00, '2025-10-04'),
+(5, 5, 5, 5, 'FIX050505444', 2800.00, '2025-10-05');
+``
