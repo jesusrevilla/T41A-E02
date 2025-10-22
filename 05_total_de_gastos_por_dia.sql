@@ -1,2 +1,2 @@
 -- Total de gastos por día
-SELECT fecha, monto FROM gasto;
+SELECT id_gasto, fecha, monto FROM gasto;
