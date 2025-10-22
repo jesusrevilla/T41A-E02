@@ -1,7 +1,5 @@
 -- Listar todos los gastos con información del usuario, tipo de gasto y proveedor
 
-
--- 03_listar_todos_los_gastos.sql
 SELECT 
     g.id_gasto,
     g.fecha,
@@ -23,6 +21,5 @@ JOIN tipo_de_gasto tg ON g.id_tipo_gasto = tg.id_tipo_gasto
 JOIN cuenta c ON tg.id_cuenta = c.id_cuenta
 JOIN proveedor p ON g.rfc_proveedor = p.rfc_proveedor
 ORDER BY g.id_gasto;
-
 
 
