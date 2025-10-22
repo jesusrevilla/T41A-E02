@@ -1,3 +1,4 @@
+-- create tables
 CREATE TABLE usuario (
   id_usuario SERIAL PRIMARY KEY,
   nombre_usuario VARCHAR(100) NOT NULL
