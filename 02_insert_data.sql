@@ -1,30 +1,30 @@
-INSERT INTO usuario (id_usuario, nombre_usuario) VALUES
-(1, 'José Méndez'),
-(2, 'Ana Torres'),
-(3, 'Luis Martínez'),
-(4, 'Carla Gómez'),
-(5, 'Miguel Sánchez');
+INSERT INTO usuario (nombre_usuario) VALUES
+('José Méndez'),
+('Ana Torres'),
+('Luis Martínez'),
+('Carla Gómez'),
+('Miguel Sánchez');
 
-INSERT INTO departamento (id_departamento, nombre_departamento) VALUES
-(1, 'Finanzas'),
+INSERT INTO departamento (nombre_departamento) VALUES
+('Finanzas'),
 (2, 'Recursos Humanos'),
 (3, 'TI'),
 (4, 'Marketing'),
 (5, 'Operaciones');
 
-INSERT INTO cuenta (id_cuenta, nombre_cuenta) VALUES
-(1, 'Cuenta General'),
-(2, 'Cuenta RH'),
-(3, 'Cuenta TI'),
-(4, 'Cuenta Marketing'),
-(5, 'Cuenta Operativa');
+INSERT INTO cuenta (nombre_cuenta) VALUES
+('Cuenta General'),
+('Cuenta RH'),
+('Cuenta TI'),
+('Cuenta Marketing'),
+('Cuenta Operativa');
 
-INSERT INTO tipo_de_gasto (id_tipo_gasto, nombre_tipo_gasto, id_cuenta) VALUES
-(1, 'Papelería', 1),
-(2, 'Capacitación', 2),
-(3, 'Software', 3),
-(4, 'Publicidad', 4),
-(5, 'Mantenimiento', 5);
+INSERT INTO tipo_de_gasto (nombre_tipo_gasto, id_cuenta) VALUES
+('Papelería', 1),
+('Capacitación', 2),
+('Software', 3),
+('Publicidad', 4),
+('Mantenimiento', 5);
 
 INSERT INTO proveedor (rfc_proveedor, nombre_proveedor) VALUES
 ('XAXX010101000', 'Papelería Central'),
