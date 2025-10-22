@@ -1,4 +1,4 @@
 -- Total gastado por cada departamento
-SELECT d.nombre_departamento,  SUM(g.monto) AS total_gastado FROM gasto AS g
-JOIN departamento AS d ON g.id_departamento = d.id_departamento
-GROUP BY d.nombre_departamento;
+select dep.nombre_departamento,sum(monto) from gasto
+join departamento dep on dep.id_departamento=gasto.id_departamento
+group by dep.nombre_departamento;
