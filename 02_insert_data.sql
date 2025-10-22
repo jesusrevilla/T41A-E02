@@ -1,43 +1,35 @@
+-- Usuarios
 INSERT INTO usuario (nombre_usuario) VALUES
-('José Méndez'),
-('Ana Torres'),
-('Luis Martínez'),
-('Carla Gómez'),
-('Miguel Sánchez');
+  ('Ana López'),
+  ('Carlos Díaz'),
+  ('María Torres');
 
+-- Departamentos
 INSERT INTO departamento (nombre_departamento) VALUES
-('Finanzas'),
-(2, 'Recursos Humanos'),
-(3, 'TI'),
-(4, 'Marketing'),
-(5, 'Operaciones');
+  ('Finanzas'),
+  ('TI'),
+  ('Ventas');
 
+-- Cuentas
 INSERT INTO cuenta (nombre_cuenta) VALUES
-('Cuenta General'),
-('Cuenta RH'),
-('Cuenta TI'),
-('Cuenta Marketing'),
-('Cuenta Operativa');
+  ('Gastos Operativos'),
+  ('Servicios'),
+  ('Viajes');
 
-INSERT INTO tipo_de_gasto (nombre_tipo_gasto, id_cuenta) VALUES
-('Papelería', 1),
-('Capacitación', 2),
-('Software', 3),
-('Publicidad', 4),
-('Mantenimiento', 5);
-
+-- Proveedores (incluye uno con 'Tech' para la consulta 06)
 INSERT INTO proveedor (rfc_proveedor, nombre_proveedor) VALUES
-('XAXX010101000', 'Papelería Central'),
-('BEBE020202111', 'Cursos RH'),
-('TECH030303222', 'SoftTech'),
-('MARK040404333', 'Publicidad MX'),
-('FIX050505444', 'Servicios Técnicos');
+  ('ABC010203XYZ', 'Tech Solutions SA de CV'),
+  ('DEF040506LMN', 'Papelería Central'),
+  ('GHI070809OPQ', 'Transporte Express');
 
-INSERT INTO gasto (id_gasto, id_usuario, id_tipo_gasto, id_departamento, rfc_proveedor, monto, fecha) VALUES
-(1, 1, 1, 1, 'XAXX010101000', 1500.00, '2025-10-01'),
-(2, 2, 2, 2, 'BEBE020202111', 3200.00, '2025-10-02'),
-(3, 3, 3, 3, 'TECH030303222', 5000.00, '2025-10-03'),
-(4, 4, 4, 4, 'MARK040404333', 4200.00, '2025-10-04'),
-(5, 5, 5, 5, 'FIX050505444', 2800.00, '2025-10-05');
-``
+-- Tipos de gasto (relacionados con cuentas)
+INSERT INTO tipo_de_gasto (nombre_tipo_gasto, id_cuenta) VALUES
+  ('Software', 2),    -- Servicios
+  ('Papelería', 1),   -- Gastos Operativos
+  ('Viáticos', 3);    -- Viajes
 
+-- Gastos (al menos uno para que 03 tenga resultados)
+INSERT INTO gasto (id_usuario, id_tipo_gasto, id_departamento, rfc_proveedor, monto, fecha) VALUES
+  (1, 1, 2, 'ABC010203XYZ', 1500.00, CURRENT_DATE - INTERVAL '2 day'),
+  (2, 2, 1, 'DEF040506LMN',  250.00, CURRENT_DATE - INTERVAL '1 day'),
+  (3, 3, 3, 'GHI070809OPQ', 3200.00, CURRENT_DATE);
