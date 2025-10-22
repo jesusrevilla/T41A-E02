@@ -8,7 +8,7 @@ CREATE TABLE departamento (
     nombre_departamento varchar(40) NOT NULL
 );
  
-CREATE TABLE cuenta (
+CREATE TABLE cuentas (
     id_cuenta SERIAL PRIMARY KEY,
     nombre_cuenta varchar(30) NOT NULL
 );
@@ -27,7 +27,7 @@ CREATE TABLE proveedor (
     nombre_proveedor VARCHAR(40) NOT NULL
 );
  
-CREATE TABLE gasto (
+CREATE TABLE gastos (
     id_gasto int PRIMARY KEY,
     id_usuario int,
     id_tipo_gasto int,
