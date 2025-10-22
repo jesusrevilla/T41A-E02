@@ -8,7 +8,7 @@ INSERT INTO usuario (id_usuario, nombre_usuario) VALUES
 INSERT INTO departamento (id_departamento, nombre_departamento) VALUES
 (1, 'Finanzas'),
 (2, 'Recursos Humanos'),
-(3, 'TI'),
+(3, 'Tecnologías'),
 (4, 'Marketing'),
 (5, 'Operaciones');
 
