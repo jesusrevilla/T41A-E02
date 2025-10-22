@@ -1,10 +1,13 @@
+-- 01_create_tables.sql
 
+-- Eliminación de tablas existentes para asegurar un entorno limpio
 DROP TABLE IF EXISTS gasto;
 DROP TABLE IF EXISTS tipo_de_gasto;
 DROP TABLE IF EXISTS proveedor;
 DROP TABLE IF EXISTS cuenta;
 DROP TABLE IF EXISTS departamento;
 DROP TABLE IF EXISTS usuario;
+
 -- 1. Tabla usuario
 CREATE TABLE usuario (
     id_usuario SERIAL PRIMARY KEY,
@@ -20,7 +23,7 @@ CREATE TABLE departamento (
 -- 3. Tabla cuenta
 CREATE TABLE cuenta (
     id_cuenta SERIAL PRIMARY KEY,
-    nombre_cuenta VARCHAR(100) NULL
+    nombre_cuenta VARCHAR(100) NOT NULL
 );
 
 -- 4. Tabla proveedor
@@ -61,12 +64,14 @@ CREATE TABLE gasto (
     -- FK: Tipo de gasto realizado
     CONSTRAINT fk_tipo_de_gasto
         FOREIGN KEY (id_tipo_gasto)
-        REFERENCES tipo_de_gasto (id_tipo_gasto);
+        REFERENCES tipo_de_gasto (id_tipo_gasto),
+
+    -- FK: Departamento asociado al gasto
     CONSTRAINT fk_departamento
         FOREIGN KEY (id_departamento)
         REFERENCES departamento (id_departamento),
 
-    
+    -- FK: Proveedor del gasto
     CONSTRAINT fk_proveedor
         FOREIGN KEY (rfc_proveedor)
         REFERENCES proveedor (rfc_proveedor)
