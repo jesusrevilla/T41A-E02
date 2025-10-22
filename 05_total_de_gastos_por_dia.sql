@@ -1,8 +1,3 @@
 -- Total de gastos por día
-SELECT 
-  MIN(id_gasto) AS id_gasto,
-  fecha,
-  SUM(monto) AS total_por_dia
-FROM gasto
-GROUP BY fecha
-ORDER BY fecha;
+SELECT gasto.fecha, COUNT(gasto.id_gasto) AS total_gastos, SUM(gasto.monto) AS total_monto
+FROM gasto GROUP BY gasto.fecha;
