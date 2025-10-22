@@ -1,7 +1,7 @@
 -- Mostrar nombre de usuario en mayúsculas
-SELECT 
-  id_usuario,
-  UPPER(nombre_usuario) AS nombre_en_mayusculas
-  UPPER(nombre_usuario) AS nombre_en_mayusculas,
-  id_usuario
-FROM usuario;
+SELECT
+    UPPER(nombre_usuario)
+FROM
+    usuario
+ORDER BY
+    nombre_usuario;
