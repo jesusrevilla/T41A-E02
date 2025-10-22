@@ -1,9 +1,28 @@
---Usuario
---Departamento
---Cuenta
---Tipo de Gasto
---Proveedor
---Gasto
+    --usuario
+--id_usuario
+--nombre_usuario
+    --departamento
+--id_departamento
+--nombre_departamento
+    --cuenta
+--id_cuenta
+--nombre_cuenta
+    --tipo_de_gasto
+--id_tipo_gasto
+--nombre_tipo_gasto
+--id_cuenta
+--rfc_proveedor
+    --nombre_proveedor
+    --gasto
+--id_gasto
+--id_usuario
+--id_tipo_gasto
+--id_departamento
+--rfc_proveedor
+--monto
+--fecha
+
+
 
 
 CREATE TABLE usuario (
