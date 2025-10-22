@@ -37,5 +37,5 @@ CREATE TABLE gasto(
   rfc_proveedor VARCHAR(20),
   FOREIGN KEY(rfc_proveedor) REFERENCES proveedor(rfc_proveedor),
   monto INT NOT NULL,
-  fecha TIMESTAMP NOT NULL 
+  fecha DATE NOT NULL 
 );
