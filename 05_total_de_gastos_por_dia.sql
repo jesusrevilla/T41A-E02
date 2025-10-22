@@ -1,3 +1,3 @@
 -- Total de gastos por día
-SELECT fecha, SUM(monto) FROM gasto 
+SELECT id_gasto, fecha, SUM(monto) FROM gasto 
 GROUP BY fecha; 
