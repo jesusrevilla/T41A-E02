@@ -14,6 +14,7 @@ CREATE TABLE proveedor (
     nombre_proveedor VARCHAR(200) NOT NULL
 );
 
+-- 2. Tablas que dependen de las anteriores
 CREATE TABLE tipo_de_gasto (
     id_tipo_gasto INT PRIMARY KEY,
     nombre_tipo_gasto VARCHAR(100) NOT NULL,
@@ -28,6 +29,7 @@ CREATE TABLE usuario (
     FOREIGN KEY (id_departamento) REFERENCES departamento(id_departamento)
 );
 
+-- 3.tabla que depende de todas las demás
 CREATE TABLE gasto (
     id_gasto INT PRIMARY KEY,
     id_usuario INT,
