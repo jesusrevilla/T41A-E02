@@ -1,2 +1,3 @@
--- Buscar proveedores cuyo nombre contiene 'Tech'
-SELECT rfc_proveedor, nombre_proveedor FROM proveedor WHERE nombre_proveedor LIKE '%Tech%';
+-- Total de gastos por día
+SELECT gasto.fecha, COUNT(gasto.id_gasto) AS total_gastos, SUM(gasto.monto) AS total_monto
+FROM gasto GROUP BY gasto.fecha;
