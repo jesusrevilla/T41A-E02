@@ -1,8 +1,7 @@
--- Total de gastos por día
-SELECT 
-    fecha,
-    SUM(monto) as total_dia,
-    COUNT(*) as cantidad_gastos
-FROM gasto
-GROUP BY fecha
-ORDER BY fecha DESC;
+-- Totales por día (fecha, cantidad_de_gastos, total_del_dia)
+SELECT g.fecha::date AS fecha,
+       COUNT(*) AS cantidad_gastos,
+       COALESCE(SUM(g.monto), 0) AS total_del_dia
+FROM gasto g
+GROUP BY g.fecha::date
+ORDER BY g.fecha::date;
