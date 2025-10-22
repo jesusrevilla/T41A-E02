@@ -1,7 +1,3 @@
--- ===========================
--- CREACIÓN DE TABLAS EN POSTGRESQL
--- ===========================
-
 -- Tabla: usuario
 CREATE TABLE usuario (
     id_usuario SERIAL PRIMARY KEY,
