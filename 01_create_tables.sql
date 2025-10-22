@@ -41,8 +41,8 @@ CREATE TABLE cuenta (
 );
 
 CREATE TABLE proveedor (
-    rfc_proveedor VARCHAR(20) PRIMARY KEY,
-    nombre_proveedor VARCHAR(200) NOT NULL
+    rfc_proveedor VARCHAR(13) PRIMARY KEY,
+    nombre_proveedor VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE tipo_de_gasto (
@@ -57,7 +57,7 @@ CREATE TABLE gasto (
     id_usuario INTEGER NOT NULL,
     id_tipo_gasto INTEGER NOT NULL,
     id_departamento INTEGER NOT NULL,
-    rfc_proveedor VARCHAR(20) NOT NULL,
+    rfc_proveedor VARCHAR(13) NOT NULL,
     monto DECIMAL(10,2) NOT NULL,
     fecha DATE NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
