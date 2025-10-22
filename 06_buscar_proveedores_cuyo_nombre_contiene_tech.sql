@@ -4,4 +4,4 @@ SELECT
     rfc_proveedor,
     nombre_proveedor
 FROM proveedor
-WHERE rfc_proveedor LIKE 'ABC%';
+WHERE rfc_proveedor LIKE 'Tech%';
