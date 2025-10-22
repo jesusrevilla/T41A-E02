@@ -33,7 +33,7 @@ CREATE TABLE gasto (
     id_tipo_gasto int,
     id_departamento int,
     rfc_proveedor varchar(20),
-    monto decimal(10,2),
+    monto NUMERIC(12,2),
     fecha date,
     FOREIGN KEY (id_usuario) references usuario(id_usuario),
     FOREIGN KEY (id_tipo_gasto) references tipo_de_gasto(id_tipo_gasto),
