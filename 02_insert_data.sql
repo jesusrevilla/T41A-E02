@@ -8,7 +8,7 @@ INSERT INTO usuario (id_usuario, nombre_usuario) VALUES
 INSERT INTO departamento (id_departamento, nombre_departamento) VALUES
 (1, 'Finanzas'),
 (2, 'Recursos Humanos'),
-(3, 'TI'),
+(3, 'Tecnologías'),
 (4, 'Marketing'),
 (5, 'Operaciones');
 
@@ -39,5 +39,5 @@ INSERT INTO gasto (id_gasto, id_usuario, id_tipo_gasto, id_departamento, rfc_pro
 (3, 3, 3, 3, 'TECH030303222', 5000.00, '2025-10-03'),
 (4, 4, 4, 4, 'MARK040404333', 4200.00, '2025-10-04'),
 (5, 5, 5, 5, 'FIX050505444', 2800.00, '2025-10-05');
-``
+
 
