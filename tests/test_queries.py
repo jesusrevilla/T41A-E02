@@ -43,7 +43,7 @@ def test_05_total_de_gastos_por_dia():
     query = load_sql('05_total_de_gastos_por_dia.sql')
     cur.execute(query)
     results = cur.fetchall()
-    assert all(row[2] >= 0 for row in results)
+    assert all(row[1] >= 0 for row in results) 
     cur.close()
     conn.close()
 
