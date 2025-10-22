@@ -1,9 +1,10 @@
 SELECT
-    fecha AS Día,
-    SUM(monto) AS Total_Diario
+    fecha AS dia,
+    SUM(monto) AS total_diario,
+    SUM(monto) AS total_diario_rep
 FROM
     gasto
 GROUP BY
-    fecha 
+    fecha
 ORDER BY
     fecha;
